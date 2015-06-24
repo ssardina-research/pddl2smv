@@ -1,0 +1,9 @@
+THis is a collection of translator from pddl format to smv format
+
+The first one is Fabio's pddl2smv. It is the base and relies on particular version of flex+bison which are under tool.
+
+From that one, we have then different translators to TLV, JTLV and NUGAT.
+
+In principle, one would like ONE single translator with options --nugat --tlv etc...
+
+

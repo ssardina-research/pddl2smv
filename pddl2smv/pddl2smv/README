@@ -1,0 +1,45 @@
+Created: October 2010
+Author: Fabio Patrizi
+e-mail: f.patrizi@imperial.ac.uk, patrizi@dis.uniroma1.it
+
+
+DESCRIPTION:
+
+This program takes a file containing:
+- a deterministic planning domain described in PDDL
+- an LTL goal
+(for an example of input format see examples/basic4.pddl)
+and returns an SMV input description where:
+- the system represents the possible evolutions of the planning domain
+- the LTL specification is the negation of the original LTL goal, translated on the SMV system
+(for an example of output format see examples/basic4.smv)
+
+Upon execution (with the SMV file as input), the model checker (NuSMV) returns a counterexample for the
+LTL goal that represents a (infinite) plan satisfying the goal
+
+
+COMPILATION TIPS:
+
+To generate the parser, you need Bison (Busong 2.4 was used for testing)
+
+As for the scanner, the program was compiled using Flex 2.5.35, though other versions might work as well
+
+All tools necessary for compilation are included in tools/ (except of course, the c++ compiler ;-) )
+
+"make all" should work. 
+
+
+EXECUTION TIPS:
+
+The program takes no arguments in input
+The input file must be passed to the program as stdin, using the operator <
+To redirect the output to a file, use the stdout operator >
+
+For example, to generate basic4.smv from basic4.pddl, type:
+
+./pddl2smv < examples/basic4.pddl > examples/basic4.smv
+
+Good Luck!
+
+
+

@@ -1,0 +1,132 @@
+# .gitignore 
+# Sebastian Sardina 2011
+
+tmp
+tmp*
+
+# Latex
+*.aux
+*.glo
+*.idx
+*.log
+*.toc
+*.ist
+*.acn
+*.acr
+*.alg
+*.bbl
+*.blg
+*.dvi
+*.glg
+*.gls
+*.ilg
+*.ind
+*.lof
+*.lot
+*.maf
+*.mtc
+*.mtc1
+*.out
+*.synctex.gz
+*.vrb
+*.nav
+*.snm
+*.tdo
+*.spl
+*.thm
+*.pdfsync
+*.dpth
+*.cb
+*.cb2
+*.soc
+
+pdfs/*
+src/*.pdf
+main-*.pdf
+
+
+# Standard VS.NET and ReSharper Foo
+obj
+bin
+*.csproj.user
+*ReSharper*
+*resharper*
+*.suo
+*.cache
+*Thumbs.db
+
+# Stylecop things
+SourceAnalysisViolations.xml
+*.SourceAnalysis
+
+# Other useful stuff
+*.bak
+*.backup	# kile
+*~		# emacs
+*.cache
+*.log
+*.tmp
+*.swp
+*.user
+_compareTemp
+_notes
+aspnet_client
+httpd.parse.errors
+*.webinfo
+*.InstallLog
+*.InstallState
+
+# Office Temp Files
+~$*
+
+# If you have a deploy folder
+deploy
+deploy/*
+
+# Exclude ALL compiled files?
+*.dll
+*.exe
+*.pdb
+
+# Exclude svn folders for the freaks that put a git repo in the root of an svn working copy. (git-svn hates externals...)
+.svn
+.svn/*
+
+# Exclude vss files
+*.*scc
+
+# SQL Server managment studio stuff
+*.sqlsuo
+
+# Visual Basic 6 excludes
+*.vbw
+
+# C binary
+*.o
+
+#java specific
+*.class
+
+#netbeans ignore personal stuff 
+nbproject/private/
+
+## generic files to ignore
+*~
+*.lock
+*.DS_Store
+*.swp
+*.out
+*.~lock*
+
+# Jack jar files
+jack.jar
+jackagt.jar
+
+# git original files after merge
+*.orig
+
+*.table
+*.script
+*.gnuplot
+*.auxlock
+

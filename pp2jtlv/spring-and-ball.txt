@@ -1,0 +1,110 @@
+-- FABIO PATRIZI, 10/7/2009
+
+MODULE main
+	VAR
+		environment : system environment_module(controller);
+		controller : system system_module(environment);
+	DEFINE
+		jx := controller.jx;
+-- end main
+
+MODULE system_module(env)
+	VAR
+		action : {
+			start_sym,
+			pull, release, fire
+		};
+		
+		selection : {start_sym,1,2};
+				
+		last : boolean; -- true iff current action is the last one of the plan under execution
+		
+		jx : 1..1; -- needs to be here :-)
+	INIT
+		action = start_sym & last = 0 & selection = start_sym
+	TRANS
+		!env.failure & -- to be checked
+		next(action) != start_sym &
+		next(selection) != start_sym &
+		case
+			last & (env.target.achieve = g1) : next(env.target.goal1);
+			last & (env.target.achieve = g2) : next(env.target.goal2);
+			TRUE : 1;
+		esac
+	JUSTICE -- (weak fariness)
+		last  -- each plan is always eventually completed, that is all goals are always eventually satisfied
+-- end of system_module
+
+
+MODULE environment_module(ctr)
+	VAR
+		domain : domain_module(ctr.action,ctr.selection);
+		target : target_module(domain, ctr.last);
+		springA : spring(ctr.action,ctr.selection,1);
+		springB : spring(ctr.action,ctr.selection,2);
+	DEFINE
+		failure := springA.failure | springB.failure;
+	JUSTICE 
+		TRUE
+-- end of environment module
+
+MODULE domain_module(act,sel)
+	VAR
+		-- domain fluents
+		position : {start_sym, posA, posB};
+
+	INIT
+		position = start_sym
+	TRANS
+		case
+			position = start_sym : next(position) = posA;
+			position = posA & act = fire & sel = 1 : next(position) = posB;
+			position = posB & act = fire & sel = 2 : next(position) = posA;
+			TRUE : next(position) = position;
+		esac
+	JUSTICE
+		TRUE
+-- end of domain_module
+
+MODULE target_module(dom,done)
+	VAR
+		state : {start_sym, s1,s2};
+		achieve : {start_sym, g1,g2};
+	INIT
+		state = start_sym & achieve = start_sym
+	TRANS
+		case
+			state = start_sym : next(state) = s1 & next(achieve) = g1;
+			state = s1 & done : next(state) = s2 & next(achieve) = g2;
+			state = s2 & done : next(state) = s1 & next(achieve) = g1;
+			!done : next(state) = state & next(achieve) = achieve;
+		esac
+	DEFINE
+		goal1 := dom.position = posA;
+		goal2 := dom.position = posB;	
+	JUSTICE
+		TRUE
+-- end of target_module
+
+MODULE spring(action, selected, my_index)
+	VAR
+		state : {start_sym, released, pulled};
+	INIT
+		state = start_sym
+	TRANS
+		case
+			state = start_sym : next(state) = released;
+			selected = my_index & state = released & action = pull: next(state) = pulled;			
+			selected = my_index & state = pulled & (action = release | action = fire) : next(state) = released;			
+			selected != my_index : next(state) = state;
+			TRUE : next(state) = state;
+		esac
+	DEFINE
+		failure := (selected = my_index) & !((state = released & action = pull) | (state = pulled & (action = release | action = fire)));
+-- end of spring
+
+
+
+
+
+
