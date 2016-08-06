@@ -6,6 +6,8 @@ Basically:
 - removed the Main module
 - completed a few case .. easc constructs with TRUE : TRUE;
 (all marked with "Seb" as comment)
+- used FALSE for boolean instead of 0 (it does not work anymore with 0 in the SMV 2.5.4)
+
 
 ====================================================
 Created: October 2010
