@@ -1,9 +1,12 @@
-THis is a collection of translator from pddl format to smv format
+# PDD to SMV translators
 
-The first one is Fabio's pddl2smv. It is the base and relies on particular version of flex+bison which are under tool.
+This is a collection of translator from pddl format to smv format. They are all based on Fabio Patrizi first version to translate pddl files to [TLV](https://cs.nyu.edu/acsys/tlv/) files.
 
-From that one, we have then different translators to TLV, JTLV and NUGAT.
+It is done using the [Bison](https://www.gnu.org/software/bison/) parser and FLEX. Both distribution used are included here (as new versions may not work).
 
-In principle, one would like ONE single translator with options --nugat --tlv etc...
+Currently there are transltors to SMV files for TLV, JTLV and NuGAT.
 
+### TODO
+
+In principle, one would like ONE single translator with options `--nugat`, `--tlv`, and so on.
 
