@@ -1,4 +1,4 @@
-# PDD to SMV translators
+# PDDL to SMV translators
 
 This is a collection of translator from pddl format to smv format. They are all based on Fabio Patrizi first version to translate pddl files to [TLV](https://cs.nyu.edu/acsys/tlv/) files.
 
