@@ -4,12 +4,11 @@ This is a collection of translator from pddl format to smv format. They are all 
 
 It is done using the [Bison](https://www.gnu.org/software/bison/) parser and FLEX. Both distribution used are included here (as new versions may not work).
 
-Currently there are transltors to SMV files for TLV, JTLV and NuGAT.
+Currently there are transltors to SMV files for TLV, JTLV and NuGAT game solver formats.
 
-### TODO
+These translators were used for experimentation in the following article:
 
-In principle, one would like ONE single translator with options `--nugat`, `--tlv`, and so on.
-
+* Giuseppe De Giacomo, Alfonso Gerevini, Fabio Patrizi, Alessandro Saetti, and Sebastian Sardina. [Agent planning programs](http://www.sciencedirect.com/science/article/pii/S0004370215001563). Artificial Intelligence, 231:64--106, 2016.
 
 ### CONTRIBUTORS
 
