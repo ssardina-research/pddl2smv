@@ -10,3 +10,9 @@ Currently there are transltors to SMV files for TLV, JTLV and NuGAT.
 
 In principle, one would like ONE single translator with options `--nugat`, `--tlv`, and so on.
 
+
+### CONTRIBUTORS
+
+* Fabio Patrizi <patrizi@dis.uniroma1.it>
+* Sebastian Sardina <ssardina@gmail.com>
+
