@@ -716,7 +716,12 @@ transition_list:
 	;
 	
 transition:
+	/* without the :goal keyword - v1 */
 	'(' node node gd ')'{
+		$$ = new Transition($2, $3, $4);		
+	}
+	|
+	'(' node node goal ')'{	/* with the :goal keyword - v2*/
 		$$ = new Transition($2, $3, $4);		
 	}
 	;

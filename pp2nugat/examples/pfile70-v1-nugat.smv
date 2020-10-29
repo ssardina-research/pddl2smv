@@ -140,13 +140,13 @@ MODULE environment_module(sys)
     --planning program current state
       planning_program_state : {
         start_state,
-        n0,
+        n3,
         n1,
         n2,
-        n3,
-        n6,
+        n0,
         n4,
         n5,
+        n6,
         n7,
         n8,
         n9,
@@ -361,13 +361,13 @@ MODULE environment_module(sys)
     &
     case
     --invariant constraints 
-      next(planning_program_state) = n0 : next(planning_program_transition) = trans_70 | next(planning_program_transition) = trans_90 | next(planning_program_transition) = trans_109 | next(planning_program_transition) = trans_115 | next(planning_program_transition) = trans_118 | next(planning_program_transition) = trans_129;
+      next(planning_program_state) = n3 : next(planning_program_transition) = trans_73 | next(planning_program_transition) = trans_97 | next(planning_program_transition) = trans_100 | next(planning_program_transition) = trans_101 | next(planning_program_transition) = trans_123 | next(planning_program_transition) = trans_128 | next(planning_program_transition) = trans_135;
       next(planning_program_state) = n1 : next(planning_program_transition) = trans_71 | next(planning_program_transition) = trans_91 | next(planning_program_transition) = trans_113 | next(planning_program_transition) = trans_116 | next(planning_program_transition) = trans_126 | next(planning_program_transition) = trans_136;
       next(planning_program_state) = n2 : next(planning_program_transition) = trans_72 | next(planning_program_transition) = trans_87 | next(planning_program_transition) = trans_95 | next(planning_program_transition) = trans_119 | next(planning_program_transition) = trans_122 | next(planning_program_transition) = trans_131;
-      next(planning_program_state) = n3 : next(planning_program_transition) = trans_73 | next(planning_program_transition) = trans_97 | next(planning_program_transition) = trans_100 | next(planning_program_transition) = trans_101 | next(planning_program_transition) = trans_123 | next(planning_program_transition) = trans_128 | next(planning_program_transition) = trans_135;
-      next(planning_program_state) = n6 : next(planning_program_transition) = trans_76 | next(planning_program_transition) = trans_102 | next(planning_program_transition) = trans_103 | next(planning_program_transition) = trans_130;
+      next(planning_program_state) = n0 : next(planning_program_transition) = trans_70 | next(planning_program_transition) = trans_90 | next(planning_program_transition) = trans_109 | next(planning_program_transition) = trans_115 | next(planning_program_transition) = trans_118 | next(planning_program_transition) = trans_129;
       next(planning_program_state) = n4 : next(planning_program_transition) = trans_74 | next(planning_program_transition) = trans_104 | next(planning_program_transition) = trans_107 | next(planning_program_transition) = trans_110 | next(planning_program_transition) = trans_117 | next(planning_program_transition) = trans_120;
       next(planning_program_state) = n5 : next(planning_program_transition) = trans_75 | next(planning_program_transition) = trans_88 | next(planning_program_transition) = trans_93 | next(planning_program_transition) = trans_111 | next(planning_program_transition) = trans_114 | next(planning_program_transition) = trans_133;
+      next(planning_program_state) = n6 : next(planning_program_transition) = trans_76 | next(planning_program_transition) = trans_102 | next(planning_program_transition) = trans_103 | next(planning_program_transition) = trans_130;
       next(planning_program_state) = n7 : next(planning_program_transition) = trans_77 | next(planning_program_transition) = trans_108 | next(planning_program_transition) = trans_112 | next(planning_program_transition) = trans_124 | next(planning_program_transition) = trans_132;
       next(planning_program_state) = n8 : next(planning_program_transition) = trans_78 | next(planning_program_transition) = trans_81 | next(planning_program_transition) = trans_82 | next(planning_program_transition) = trans_89 | next(planning_program_transition) = trans_99 | next(planning_program_transition) = trans_106 | next(planning_program_transition) = trans_125 | next(planning_program_transition) = trans_134 | next(planning_program_transition) = trans_138;
       next(planning_program_state) = n9 : next(planning_program_transition) = trans_79 | next(planning_program_transition) = trans_84 | next(planning_program_transition) = trans_85 | next(planning_program_transition) = trans_86 | next(planning_program_transition) = trans_98 | next(planning_program_transition) = trans_105 | next(planning_program_transition) = trans_121;

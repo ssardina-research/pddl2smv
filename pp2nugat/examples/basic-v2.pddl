@@ -35,7 +35,7 @@
 )
 
 (define 
-	(planprog acyclic-complete-6) 
+	(planprog basic) 
 	(:domain blocksworld) 
 	(:objects b1 b2) 
 	(:init 
@@ -46,11 +46,9 @@
 		(clear b2)
 		(ftrue)
 	)
-	(:initnode n0) 
+	(:init-app n1) 
 	(:transitions 
-		(n0 n1 (on b1 b2))
-		(n0 n2 (on b2 b1))
-		(n1 n2 (and (on-table b1) (on-table b2)))
-		(n2 n0 (arm-empty))
+		(n1 n2 (:goal (on b1 b2)))
+		(n2 n2 (:goal (ftrue)))
 	)
 )
