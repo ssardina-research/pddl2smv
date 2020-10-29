@@ -2,14 +2,7 @@
 
 This script converts agent planning programs in the original PP-LPG format to SMV format for NuGAT solver.
 
-It is an adapted version of the one Fabio Patrizi did for SMV for TLV.
-
-Sebastian Sardina - ssardina@gmail.com - March 2015
-
-
-## Install and run
-
-First, you need to install Bison 2.4, which is provided under `tools/`, in folder `/opt/bison-2.4`:
+## Example
 
 Then run just run `make` to obtain `pp2nugat` binary, which can be used as follows:
 
@@ -45,28 +38,37 @@ cd examples
 --   BuchiGame PLAYER_2 (agent.last)  : the strategy has been found
 ```
 
-## Changes
+## Changes (from TLV parser)
 
-The changes done are:
+This translator is a variant of the one for TLV with a few changes to make it NuGAT compatible.
 
-- added the bottom part for the GAME section.
-- removed the Main module.
-- completed a few case .. `easc` constructs with `TRUE : TRUE`; (all marked with "Seb" as comment in the code)
-- used `FALSE` for boolean instead of `0` (it does not work anymore with `0` in the SMV 2.5.4)
+
+1. Remove `Main` module completely.
+2. There are three `case` statements that are _not_ exhaustive. So we add an extra dummy case: `TRUE : TRUE`. This should not change the semantics as that case should never be used in reality.
+3. Used `FALSE` for boolean instead of `0` (`0` does not work anymore from  SMV 2.5.4).
+4. Finall, we generate the following at the end to define the game:
+
+    ```bash
+	GAME
+
+	--- NON-DETERMINISTIC ENVIRONMENT PLAYER
+	PLAYER_1
+	VAR
+	  dom : environment_module(agent);
+
+	--- CONTROLLER PLAYER ENVIRONMENT
+	PLAYER_2
+	VAR
+	  agent : system_module(dom);
+
+
+	BUCHIGAME PLAYER_2 (agent.last)
+    ```
 
 ## Original translator
 
-Created: October 2010
-Author: Fabio Patrizi
-e-mail: f.patrizi@imperial.ac.uk, patrizi@dis.uniroma1.it
+The original translator for TLV was done by Fabio Patrizi (patrizi@dis.uniroma1.it) in 2015.
 
-COMPILATION TIPS:
+The adaptation for NuGAT was done by Sebastian Sardina in 2015.
 
-To generate the parser, you need Bison 2.4.
-However, if you do not plan to change the parser, you can use the one provided with this release.
-
-As for the scanner, the program was compiled using Flex 2.5.35, though other versions might work as well
-
-All tools necessary for compilation are included `tools/` (except of course, the c++ compiler ;-) )
-
-`make all` should work. Good Luck.
+Clean-up done in October 2020.
