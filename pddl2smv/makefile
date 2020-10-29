@@ -23,7 +23,7 @@ $(FLEX_OUT): $(FLEX_SRC) $(BISON_OUT)
 bison: $(BISON_OUT)
 
 $(BISON_OUT): $(BISON_SRC)
-	bison $(BISON_SRC)
+	/opt/bison-2.4/bin/bison $(BISON_SRC)
 	
 .cpp.o .cc.o .c.o:
 	$(CC) $(CFLAGS) $< -o $@

@@ -1,5 +1,5 @@
 
-/* A Bison parser, made by GNU Bison 2.4.1.  */
+/* A Bison parser, made by GNU Bison 2.4.  */
 
 /* Positions for Bison parsers in C++
    
