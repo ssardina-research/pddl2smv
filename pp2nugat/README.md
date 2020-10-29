@@ -62,7 +62,7 @@ e-mail: f.patrizi@imperial.ac.uk, patrizi@dis.uniroma1.it
 
 COMPILATION TIPS:
 
-To generate the parser, you need Bison 2.4. 
+To generate the parser, you need Bison 2.4.
 However, if you do not plan to change the parser, you can use the one provided with this release.
 
 As for the scanner, the program was compiled using Flex 2.5.35, though other versions might work as well
