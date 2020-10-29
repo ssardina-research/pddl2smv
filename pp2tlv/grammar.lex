@@ -56,6 +56,7 @@ comment ;.*
 "planprog" {return token::PLANPROG;}
 ":init" {return token::INIT;}
 ":initnode" {return token::INITNODE;}
+":init-app" {return token::INITNODE;}
 ":transitions" {return token::TRANSITIONS;}
 ":goal" {return token::GOAL;}
 ":domain" {return token::COL_DOMAIN;}

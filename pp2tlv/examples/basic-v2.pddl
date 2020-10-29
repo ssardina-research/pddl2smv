@@ -5,8 +5,10 @@
              (arm-empty)
              (holding ?x)
              (on ?x ?y)
+             (ftrue)
 )
 
+ 
 (:action pickup
   :parameters (?ob)
   :precondition (and (clear ?ob) (on-table ?ob) (arm-empty))
@@ -30,27 +32,23 @@
   :precondition (and (on ?ob ?underob) (clear ?ob) (arm-empty))
   :effect (and (holding ?ob) (clear ?underob)
                (not (on ?ob ?underob)) (not (clear ?ob)) (not (arm-empty))))
-
 )
-               
-(define 
-	(planprog BW-ring-2-blocks)
-	(:domain blocksworld)
-	(:objects b1 b2 b3)
 
+(define 
+	(planprog basic) 
+	(:domain blocksworld) 
+	(:objects b1 b2) 
 	(:init 
 		(arm-empty)
 		(on-table b1)
 		(on-table b2)
-		(on-table b3)
 		(clear b1)
 		(clear b2)
-		(clear b3)
+		(ftrue)
 	)
-	(:initnode n0) 
+	(:init-app n1) 
 	(:transitions 
-		(n0 n1 (on b1 b2))
-		(n1 n2 (on b2 b1))
-		(n2 n0 (and (on b3 b2) (on b2 b1)))
+		(n1 n2 (:goal (on b1 b2)))
+		(n2 n2 (:goal (ftrue)))
 	)
 )
