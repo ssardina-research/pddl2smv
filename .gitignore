@@ -130,3 +130,6 @@ jackagt.jar
 *.gnuplot
 *.auxlock
 
+*.cc
+*.hh
+lex.yy.c
